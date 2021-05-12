@@ -9,6 +9,13 @@ git:
   depth: 3
 script:
   - yarn build
+# NOTIFICACIONES MEDIANTE CORREO ELECTRÓNICO
+notification:
+  email:
+    recipients:
+      - galvis.apple@gmail.com
+    on_success: always
+    on_failure: always
 deploy:
   #GitHub Pages
   provider: pages 
