@@ -1,0 +1,25 @@
+language: node_js
+cache:
+  directories:
+    - node_modules
+    - ~/.npm
+node_js:
+  - '12'
+git:
+  depth: 3
+script:
+  - yarn build
+deploy:
+  #GitHub Pages
+  provider: pages 
+  # skip_cleanup -> se asegurará de que después de crear la carpeta que está intentando implementar, no se eliminará antes de que se implemente.
+  skip_cleanup: true
+  # keep_history -> asegurará que no se realice un empuje forzado
+  keep_history: true
+  # github_token -> garantiza que la tarea de implementación tenga el privilegio suficiente para enviarla a las páginas de Github.
+  github_token: $GITHUB_TOKEN
+  local_dir: dist/
+  target_branch: gh-pages
+  commit_message: "Desploy del proyecto"
+  on:
+    branch: master
